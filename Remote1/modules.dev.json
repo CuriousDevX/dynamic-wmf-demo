@@ -1,0 +1,24 @@
+{
+    "hostComponents": [
+        {
+            "id": "host",
+            "title": "Host",
+            "path": "/Host",
+            "url": "http://localhost",
+            "externalPort": 3000,
+            "internalPort": 80,
+            "hide": true,
+            "deploy": true
+        },
+        {
+            "id": "auth-gateway",
+            "title": "Auth Gateway",
+            "path": "/AuthGateway",
+            "url": "http://localhost",
+            "externalPort": 8000,
+            "internalPort": 8000,
+            "hide": true,
+            "deploy": true
+        }
+    ]
+}

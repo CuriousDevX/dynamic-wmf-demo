@@ -1,0 +1,53 @@
+{
+    "name": "host",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "set PORT=3000 && npm run build-config && react-app-rewired start",
+        "build": "cross-env NODE_ENV=production npm run build-config && react-app-rewired build",
+        "build-config": "node ./build-config.js"
+    },
+    "dependencies": {
+        "@module-federation/utilities": "^3.0.0",
+        "js-cookie": "^3.0.1",
+        "path": "^0.12.7",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-hook-form": "^7.45.1",
+        "react-router-dom": "^6.18.0",
+        "react-scripts": "5.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.4.5",
+        "@types/react": "^18.2.15",
+        "@types/react-dom": "^18.2.7",
+        "cross-env": "^7.0.3",
+        "customize-cra": "1.0.0",
+        "fs": "^0.0.2",
+        "prettier": "2.8.8",
+        "react-app-rewired": "^2.2.1",
+        "sass": "^1.64.2",
+        "typescript": "^5.1.6",
+        "webpack": "5.88.2"
+    },
+    "overrides": {
+        "typescript": "^5.1.6"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

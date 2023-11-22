@@ -1,0 +1,109 @@
+body:has(.AuthGateway) {
+    margin: 0;
+    padding: 0;
+}
+.AuthGateway {
+    display: grid;
+    min-height: 100vh;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    background: #2d4464;
+    color: #fff;
+    font-family: Open-Sans, Arial, sans-serif;
+    font-size: 14px;
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    &_Header {
+        color: #fff;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    &_InputGroup {
+        display: grid;
+        grid-auto-flow: row;
+    }
+
+    &_TextInput {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #979797;
+        background-color: white !important;
+        padding: 10px;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1.7rem;
+        height: auto;
+        color: #007298;
+
+        &:focus {
+            outline: 2px #4accff solid;
+        }
+    }
+
+    &_Link {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: baseline;
+        align-content: center;
+        justify-content: left;
+        gap: 5px;
+        text-decoration: underline;
+        text-underline-position: under;
+        color: #bdbfc1;
+        font-size: 14px;
+    }
+
+    &_Form {
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    &_InputError {
+        color: #ff8888;
+        margin: 5px 0 0 0;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    &_Error {
+        color: #ff8888;
+        margin: 5px 0 0 0;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    &_ButtonGroup {
+        display: grid;
+        gap: 10px;
+    }
+
+    &_Button {
+        font-size: 14px;
+        line-height: 15px;
+        font-weight: normal;
+        outline: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-radius: 3px;
+        padding: 11px 15px;
+        width: 100%;
+        background-color: #007298;
+        color: #fff;
+        border: 1px solid #007298;
+    }
+}
