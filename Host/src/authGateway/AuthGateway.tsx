@@ -4,9 +4,14 @@ import Cookies from 'js-cookie'
 import { BrowserRouter, Routes, useLocation, Navigate, Route, Link, useNavigate, Outlet, RouteObject } from 'react-router-dom'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-import remoteConfig from '../remoteConfig'
+// Proxy config
+import authGatewayConfig from './authGatewayConfig'
+const authGateway = authGatewayConfig[process.env.NODE_ENV] || authGatewayConfig.development
 
-const environmentConfig = remoteConfig[process.env.NODE_ENV] || remoteConfig.development
+// Get Proxy address
+// const allRemoteApps = window._env_.remoteComponents || []
+// export const authConfig: Host.IRemoteApp[] = allRemoteApps.filter(app => (app.id === 'auth-gateway'))
+// const authGatewayURL = authConfig[0].url + (authConfig[0].externalPort ? ':' + authConfig[0].externalPort : '')
 
 // #region Auth Provider for Webpack Module Federation #######################
 
@@ -34,7 +39,7 @@ export const AuthProvider = ({ children, disabled = false }: AuthProviderProps) 
         <BrowserRouter>
             <Routes>
                 <Route path="*" element={<RequireAuthForProvider>{children}</RequireAuthForProvider>} />
-                <Route path="/login" element={<Login domain={environmentConfig.cookieDomain} />} />
+                <Route path="/login" element={<Login domain={authGateway.cookieDomain} />} />
                 <Route path="/logout" element={<Logout />} />
             </Routes>
         </BrowserRouter>
@@ -46,7 +51,7 @@ export const RequireAuthForProvider = ({ children }: { children: JSX.Element }) 
     let location = useLocation()
 
     // Get cookie
-    let cookie = Cookies.get(environmentConfig.cookieName)
+    let cookie = Cookies.get(authGateway.cookieName)
 
     if (!cookie) {
         return <Navigate to="/login" state={{ from: location }} replace />
@@ -71,7 +76,7 @@ export const AuthProviderHost = ({ children }: AuthProviderHostProps): React.Rea
             <Route path="/" element={<RequireAuth />}>
                 {renderRoutes(children)}
             </Route>
-            <Route path="/login" element={<Login domain={environmentConfig.cookieDomain} />} />
+            <Route path="/login" element={<Login domain={authGateway.cookieDomain} />} />
             <Route path="/logout" element={<Logout />} />
         </Routes>
     )
@@ -81,7 +86,7 @@ export const RequireAuth = () => {
     let location = useLocation()
 
     // Get cookie
-    let cookie = Cookies.get(environmentConfig.cookieName)
+    let cookie = Cookies.get(authGateway.cookieName)
 
     // No cookie, no access :(
     if (!cookie) {
@@ -128,7 +133,7 @@ export const Login = ({ domain }: LoginProps) => {
     // If cookie exist redirect user to root
     useEffect(() => {
         // Get cookie
-        let cookie = Cookies.get(environmentConfig.cookieName)
+        let cookie = Cookies.get(authGateway.cookieName)
 
         if (cookie) {
             navigate('/')
@@ -144,7 +149,7 @@ export const Login = ({ domain }: LoginProps) => {
         const token = 'dummyToken'
 
         // Set cookie
-        Cookies.set(environmentConfig.cookieName, token, { domain, path: '/', sameSite: 'strict' })
+        Cookies.set(authGateway.cookieName, token, { domain, path: '/', sameSite: 'strict' })
 
         // Redirect user to home
         navigate('/')
@@ -170,7 +175,7 @@ export const Logout = () => {
     const navigate = useNavigate()
 
     // Delete cookie
-    Cookies.remove(environmentConfig.cookieName)
+    Cookies.remove(authGateway.cookieName)
 
     // Redirect user to login
     setTimeout(() => navigate('/login'), 3000)

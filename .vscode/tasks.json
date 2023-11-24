@@ -1,0 +1,83 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Host",
+      "type": "shell",
+      "command": ["cmd"],
+      "options": {
+        "cwd": "${workspaceFolder}/Host"
+      },
+      "presentation": {
+        "echo": false,
+        "panel": "dedicated",
+        "reveal": "always",
+        "focus": false,
+        "showReuseMessage": false,
+        "clear": true,
+        "group": "Host",
+        "close": false
+      },
+      "isBackground": true,
+      "icon": { "color": "terminal.ansiBlue", "id": "browser" },
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Remote1",
+      "type": "shell",
+      "command": ["cmd"],
+      "options": {
+        "cwd": "${workspaceFolder}/Remote1"
+      },
+      "presentation": {
+        "echo": false,
+        "panel": "dedicated",
+        "reveal": "always",
+        "focus": false,
+        "showReuseMessage": false,
+        "clear": true,
+        "group": "Remote1",
+        "close": false
+      },
+      "isBackground": true,
+      "icon": { "color": "terminal.ansiGreen", "id": "browser" },
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Git",
+      "type": "shell",
+      "command": ["cmd"],
+      "presentation": {
+        "echo": false,
+        "panel": "dedicated",
+        "reveal": "always",
+        "focus": false,
+        "showReuseMessage": false,
+        "clear": true,
+        "group": "Dev",
+        "close": false
+      },
+      "isBackground": true,
+      "icon": { "color": "terminal.ansiWhite", "id": "mark-github" },
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Dev",
+      "type": "shell",
+      "command": ["cmd"],
+      "presentation": {
+        "echo": false,
+        "panel": "dedicated",
+        "reveal": "always",
+        "focus": false,
+        "showReuseMessage": false,
+        "clear": true,
+        "group": "Dev",
+        "close": false
+      },
+      "isBackground": true,
+      "icon": { "color": "terminal.ansiWhite", "id": "code" },
+      "runOptions": { "runOn": "folderOpen" }
+    }
+  ]
+}

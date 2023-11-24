@@ -38,7 +38,7 @@ function Remote1() {
     }, [])
 
     // Note: We overwrite each URL because project paths are changes depending on remote or standalone build.
-    // Also we have to save the base URL to app state to update navigations links dynamically.
+    // Also we have to save the base URL to app state to update navigation links dynamically.
     const { pathname } = useLocation()
     const appState = useContext(AppStateContext)
     appState.baseURL = pathname.startsWith('/remote1') ? '/remote1' : ''

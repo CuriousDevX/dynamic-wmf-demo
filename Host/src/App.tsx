@@ -1,6 +1,6 @@
 // Auth Gateway
 import { AuthProviderHost } from './authGateway/AuthGateway'
-import remoteConfig from './remoteConfig'
+import authGatewayConfig from './authGateway/authGatewayConfig'
 
 // host routes
 import { routes } from './hostRouter'
@@ -8,11 +8,11 @@ import { routes } from './hostRouter'
 // Router
 import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-const environmentConfig = remoteConfig[process.env.NODE_ENV] || remoteConfig.development
+const authGateway = authGatewayConfig[process.env.NODE_ENV] || authGatewayConfig.development
 
 function App() {
     
-    if (environmentConfig.isAuthGatewayEnable) {
+    if (authGateway.isAuthGatewayEnable) {
         return (
             <BrowserRouter>
                 <AuthProviderHost children={routes} />
