@@ -28,7 +28,11 @@
     
         **__webpack_public_path__ = window.location.origin + '/'**
 
-    - Also tried to set config.output.publicPath = 'auto', '/' with **./src/dynamicPublicPath.ts**. Result is same with previous attempts.
+        or
+
+        **__webpack_public_path__ = 'http://localhost:3000/'**
+
+    - Also tried to set **config.output.publicPath = 'auto'** and **'/'** with **./src/dynamicPublicPath.ts**. Result is same with previous attempts, seems like setting __webpack_public_path__ not effecting at all.
 
 
 # More Information about Project.

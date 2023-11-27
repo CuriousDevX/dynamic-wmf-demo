@@ -72,11 +72,11 @@ module.exports = function (config, env) {
     // ChunkLoadError: Loading chunk vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_sour-9f8e14 failed.
 
     // // If public path 'auto' when browsing sub routes of remote components on host application is ok but when you on sub route end refresh, throws errors
-    config.output.publicPath = 'auto'
+    // config.output.publicPath = 'auto'
     //
     // // Uncaught SyntaxError: Unexpected token '<' (at bundle.js:1:1)
 
-    // This works well
+    // This works well but url is static
     // config.output.publicPath = 'http://localhost:3000/'
     
 

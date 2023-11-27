@@ -1,1 +1,1 @@
-__webpack_public_path__ = window.location.origin + '/'
+__webpack_public_path__ = 'http://localhost:3000/'
